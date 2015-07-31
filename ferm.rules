@@ -1,0 +1,10 @@
+table nat {
+  chain PREROUTING {
+    proto tcp dport 79 daddr 195.154.87.243 REDIRECT to-ports 7979;
+}
+
+table filter {
+  chain INPUT {
+    proto tcp dport (7979) ACCEPT;
+  }
+}
